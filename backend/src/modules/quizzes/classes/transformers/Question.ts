@@ -1,4 +1,4 @@
-import { ObjectId } from 'mongodb';
+import {ObjectId} from 'mongodb';
 import {
   ISOLSolution,
   ISMLSolution,
@@ -121,7 +121,7 @@ class NATQuestion extends BaseQuestion implements INATSolution {
   }
 
   toQuizView(): INATQuizView {
-    return { ...this };
+    return {...this};
   }
 }
 
@@ -134,12 +134,12 @@ class DESQuestion extends BaseQuestion implements IDESSolution {
   }
 
   toQuizView(): IDESQuizView {
-    return { ...this };
+    return {...this};
   }
 }
 
 class MTLQuestion extends BaseQuestion implements IMTLSolution {
-  matches: { match: ILotItem[] }[];
+  matches: {match: ILotItem[]}[];
 
   constructor(question: IQuestion, solution: IMTLSolution) {
     super(question);
@@ -147,15 +147,21 @@ class MTLQuestion extends BaseQuestion implements IMTLSolution {
   }
 
   toQuizView(): IMTLQuizView {
-    return { ...this };
+    return {...this};
   }
 }
 
 class QuestionFactory {
   static createQuestion(
-    body: QuestionBody
-  ): SOLQuestion | SMLQuestion | OTLQuestion | NATQuestion | DESQuestion | MTLQuestion {
-    const { question, solution } = body;
+    body: QuestionBody,
+  ):
+    | SOLQuestion
+    | SMLQuestion
+    | OTLQuestion
+    | NATQuestion
+    | DESQuestion
+    | MTLQuestion {
+    const {question, solution} = body;
     switch (question.type) {
       case 'SELECT_ONE_IN_LOT':
         return new SOLQuestion(question, solution as ISOLSolution);

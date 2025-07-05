@@ -173,7 +173,7 @@ class CreateQuestionBody {
 
   @IsNotEmpty()
   @ValidateNested()
-  @Type(({ object }) => {
+  @Type(({object}) => {
     const question = object.question as Question;
     switch (question.type) {
       case 'SELECT_ONE_IN_LOT':
@@ -209,7 +209,7 @@ class UpdateQuestionBody {
 
   @IsNotEmpty()
   @ValidateNested()
-  @Type(({ object }) => {
+  @Type(({object}) => {
     const question = object.question as Question;
     switch (question.type) {
       case 'SELECT_ONE_IN_LOT':

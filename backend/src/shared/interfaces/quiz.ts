@@ -1,5 +1,4 @@
-import { ObjectId } from 'mongodb';
-
+import {ObjectId} from 'mongodb';
 // ----------------------------------------
 // Core Question Types
 // ----------------------------------------
